@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TL;DR — Options</title>
+    <style>
+      :root {
+        font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+        --bg: #0f1219;
+        --text: #e8ecf4;
+        --muted: #9aa3b5;
+        --accent: #6c9eff;
+        --border: #2a3142;
+      }
+      body {
+        max-width: 560px;
+        margin: 40px auto;
+        padding: 0 20px;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+      h1 {
+        font-size: 1.25rem;
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 1rem;
+        margin: 28px 0 8px;
+        color: var(--text);
+      }
+      label {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+      input[type="password"],
+      input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: #171b26;
+        color: var(--text);
+        font: inherit;
+        box-sizing: border-box;
+      }
+      button {
+        margin-top: 14px;
+        padding: 10px 16px;
+        border-radius: 8px;
+        border: 1px solid #4b6ef0;
+        background: linear-gradient(180deg, #3b5bdb 0%, #2f4ac4 100%);
+        color: #fff;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button:hover {
+        filter: brightness(1.06);
+      }
+      button.secondary {
+        border-color: #6366f1;
+        background: linear-gradient(180deg, #4f46e5 0%, #4338ca 100%);
+      }
+      .status {
+        margin-top: 14px;
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+      .status.testing {
+        color: var(--accent);
+      }
+      .status.ok {
+        color: #86efac;
+      }
+      .status.err {
+        color: #fca5a5;
+      }
+      .hint {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 8px;
+      }
+      section.card {
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+      section.card:last-of-type {
+        border-bottom: none;
+      }
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>API keys (bring your own)</h1>
+    <p class="hint">
+      No keys are embedded in the extension. Each provider is optional except for the features that need it: DeepSeek for
+      summaries and quizzes; Anthropic for the interactive concept graph.
+    </p>
+
+    <section class="card">
+      <h2>DeepSeek</h2>
+      <p class="hint">
+        Get a key at
+        <a href="https://platform.deepseek.com/" target="_blank" rel="noopener noreferrer">platform.deepseek.com</a>.
+        Saving runs a connection test first.
+      </p>
+      <form id="form-deepseek">
+        <label for="key-deepseek">DeepSeek API key</label>
+        <input id="key-deepseek" name="key" type="password" autocomplete="off" placeholder="sk-…" />
+        <button type="submit">Save &amp; test connection</button>
+      </form>
+      <p id="msg-deepseek" class="status" role="status"></p>
+    </section>
+
+    <section class="card">
+      <h2>Anthropic (interactive graph)</h2>
+      <p class="hint">
+        Used to build a colored, interactive graph of the current article (nodes, labeled edges). Get a key at
+        <a href="https://console.anthropic.com/" target="_blank" rel="noopener noreferrer">console.anthropic.com</a>.
+        Saving runs a connection test first.
+      </p>
+      <form id="form-anthropic">
+        <label for="key-anthropic">Anthropic API key</label>
+        <input id="key-anthropic" name="key" type="password" autocomplete="off" placeholder="sk-ant-…" />
+        <button type="submit" class="secondary">Save &amp; test connection</button>
+      </form>
+      <p id="msg-anthropic" class="status" role="status"></p>
+    </section>
+
+    <script src="options.js"></script>
+  </body>
+</html>

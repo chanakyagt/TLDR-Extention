@@ -1,0 +1,252 @@
+:root {
+  --bg: #0f1219;
+  --surface: #171b26;
+  --border: #2a3142;
+  --text: #e8ecf4;
+  --muted: #9aa3b5;
+  --accent: #6c9eff;
+  --accent2: #4ade80;
+  --danger: #f87171;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 380px;
+  min-height: 200px;
+  max-height: 560px;
+  overflow-y: auto;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.top {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, #141824 0%, var(--bg) 100%);
+}
+
+h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.sub {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.banner {
+  margin: 10px 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.08);
+  color: #fecaca;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.banner-anthropic {
+  border-color: rgba(129, 140, 248, 0.45);
+  background: rgba(99, 102, 241, 0.12);
+  color: #c7d2fe;
+}
+
+.actions {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.primary {
+  background: linear-gradient(180deg, #3b5bdb 0%, #2f4ac4 100%);
+  color: #fff;
+  border-color: #4b6ef0;
+  font-weight: 600;
+}
+
+.primary:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.secondary {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.secondary:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--muted);
+  border-style: dashed;
+}
+
+.ghost:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+.linkish {
+  background: none;
+  border: none;
+  color: var(--accent);
+  padding: 4px 0;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.status {
+  margin: 0 16px 8px;
+  min-height: 1.2em;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.panel {
+  margin: 0 12px 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.panel h2 {
+  margin: 12px 0 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.panel h2:first-child {
+  margin-top: 0;
+}
+
+ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+.quiz-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.quiz-head h2 {
+  margin: 0;
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text);
+}
+
+#quiz-progress {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.quiz-q {
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.opt-btn {
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.opt-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.opt-btn.selected {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.25);
+}
+
+.opt-btn.wrong {
+  border-color: var(--danger);
+}
+
+.opt-btn.correct {
+  border-color: var(--accent2);
+}
+
+.quiz-feedback {
+  min-height: 2.5em;
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.quiz-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.quiz-nav button {
+  flex: 1;
+}
+
+.quiz-score {
+  margin: 10px 0 0;
+  font-weight: 600;
+  color: var(--accent2);
+}
+
+.foot {
+  padding: 8px 16px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.hidden {
+  display: none !important;
+}

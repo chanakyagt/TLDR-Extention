@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TL;DR + Quiz</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <h1>TL;DR + Quiz</h1>
+        <p class="sub">DeepSeek: summary &amp; quiz. Anthropic: interactive concept graph of this page.</p>
+      </div>
+    </header>
+
+    <div id="key-banner" class="banner hidden" role="status">
+      <span>Add your DeepSeek API key in Options (tested on save) for summary &amp; quiz.</span>
+      <button type="button" id="open-options" class="linkish">Open options</button>
+    </div>
+
+    <div id="anthropic-banner" class="banner banner-anthropic hidden" role="status">
+      <span>Add your Anthropic API key in Options for the interactive graph.</span>
+      <button type="button" id="open-options-anthropic" class="linkish">Open options</button>
+    </div>
+
+    <section class="actions">
+      <button type="button" id="btn-summarize" class="primary">Too long; didn’t read</button>
+      <button type="button" id="btn-quiz" class="secondary">Tricky quiz (7 questions)</button>
+      <button type="button" id="btn-graph" class="secondary">Interactive graph (Anthropic)</button>
+      <button type="button" id="btn-clear-hl" class="ghost" disabled>Clear highlights on page</button>
+    </section>
+
+    <p id="status" class="status" aria-live="polite"></p>
+
+    <section id="summary-section" class="panel hidden">
+      <h2>Most important</h2>
+      <ul id="list-critical"></ul>
+      <h2>Medium importance</h2>
+      <ul id="list-medium"></ul>
+    </section>
+
+    <section id="quiz-section" class="panel hidden">
+      <div class="quiz-head">
+        <h2>Quiz</h2>
+        <span id="quiz-progress"></span>
+      </div>
+      <p id="quiz-question" class="quiz-q"></p>
+      <div id="quiz-options" class="quiz-options"></div>
+      <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+      <div class="quiz-nav">
+        <button type="button" id="quiz-prev" class="secondary" disabled>Back</button>
+        <button type="button" id="quiz-next" class="primary" disabled>Next</button>
+      </div>
+      <p id="quiz-score" class="quiz-score hidden"></p>
+    </section>
+
+    <footer class="foot">
+      <button type="button" id="link-options" class="linkish">API key &amp; options</button>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

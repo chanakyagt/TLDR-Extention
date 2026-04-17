@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "TL;DR + Quiz (DeepSeek)",
+  "version": "1.2.0",
+  "description": "Summarize articles (DeepSeek), tricky quizzes, interactive graphs (Anthropic + vis-network), on-page highlights.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://api.deepseek.com/*", "https://api.anthropic.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "TL;DR + Quiz"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
